@@ -1,8 +1,8 @@
 # PHP Session DB Settings
 
-1. 確認 PHP ext 中是否有安裝 PDO 套件
-2. 修改 PHP ini 將 session.save_handler 由 files 改為 user
-3. 新增 SESSION 存取用 DB 資料表
+* 確認 PHP ext 中是否有安裝 PDO 套件
+* 修改 PHP ini 將 session.save_handler 由 files 改為 user
+* 新增 SESSION 存取用 DB 資料表
 
 ```
 CREATE TABLE [dbo].[sessions](
@@ -16,7 +16,7 @@ CREATE TABLE [dbo].[sessions](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 ```
 
-4. 準備 SESSION 存取程式
+* 準備 SESSION 存取程式
 
 ```
 //設置垃圾回收最大生存時間
@@ -115,4 +115,5 @@ session_set_save_handler(array(&$session, "open"),
     array(&$session, "gc"));
 ```
 
-5. 修改 session_start() 使用檔案，將上述檔案 include 進去，才進行 session_start()
+* 修改 session_start() 使用檔案，將上述檔案 include 進去，才進行 session_start()
+* 修改 w3_ci/index.php 將include/commfile/config.inc.php 拉到所有 include 的最前面
