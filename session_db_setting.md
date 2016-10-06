@@ -2,6 +2,7 @@
 
 * 確認 PHP ext 中是否有安裝 PDO 套件
 * 修改 PHP ini 將 session.save_handler 由 files 改為 user
+* 準備 PDO 存取 Library https://github.com/indieteq/indieteq-php-my-sql-pdo-database-class
 * 新增 SESSION 存取用 DB 資料表
 
 ```
@@ -115,5 +116,5 @@ session_set_save_handler(array(&$session, "open"),
     array(&$session, "gc"));
 ```
 
-* 修改 session_start() 使用檔案，將上述檔案 include 進去，才進行 session_start()
+* 修改 config.inc.php，在 session_start() 前，將上述檔案 include 進去，才進行 session_start()
 * 修改 w3_ci/index.php 將include/commfile/config.inc.php 拉到所有 include 的最前面
